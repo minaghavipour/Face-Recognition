@@ -1,0 +1,17 @@
+flask
+waitress
+numpy
+pillow
+opencv-python
+tqdm
+pyyaml
+onnxruntime
+torch
+torchvision
+requests
+matplotlib
+pandas
+seaborn
+botocore
+boto3
+thop
