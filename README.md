@@ -1,38 +1,24 @@
-**سرویس احراز هویت چهره**
+1- Create a virtual environment by running the following command:
 
-سرویس احراز هویت چهره، کار تشخیص چهره و تطبیق آن با تصاویر موجود در پایگاه داده را بر عهده دارد. پایگاه داده مجموعه ای از تصاویر افراد مجاز برای استفاده از یک سرویس خاص است. این سرویس به طور کلی از دو بخش اصلی تشکیل شده است که عبارت اند از:
-
-
-- ماژول تشخیص چهره: این ماژول کار تشخیص چهره و برگرداندن نزدیک ترین چهره را انجام می‌دهد.
+python3 -m venv 'your env name'
 
 
-- ماژول استخراج ویژگی: این ماژول از تصویر چهره‌ی استخراج شده توسط ماژول تشخیص چهره، یک بردار ویژگی استخراج می‌کند.
+2- To activate your virtual environment, run the code below:
+
+source 'your env name'/bin/activate
 
 
-با استفاده از این دو ماژول، بردارهای ویژگی مربوط به همه‌ی افراد موجود در پایگاه داده استخراج شده و ذخیره می‌شود. برای احراز هویت کاربر، پس از دریافت تصویر شخص توسط سرویس، این دو ماژول برای چهره‌ی این کاربر نیز بردار ویژگی را به دست می‌آورند. این بردار ویژگی با مجموعه‌ی بردارهای ویژگی از قبل استخراج شده مقایسه شده و وجود یا عدم وجود شخص در پایگاه داده تعیین می‌شود.
+3- Install dependencies:
 
-**نحوه ی راه اندازی**
+sudo apt install python3-opencv
 
-برای راه اندازی سرویس، ابتدا یک محیط اجرای کد در پایتون با دستور زیر بسازید:
+pip install --upgrade pip
 
-‍‍`python3 -m venv 'your env name'`
+pip install -r requirements.txt
 
-سپس آن را با دستور زیر فعال کنید:
 
-`source 'your env name'/bin/activate`
+4- Run the service using one of the following commands:
 
-سپس درون این محیط، ماژول های مورد نیاز را با دستوری که در ادامه می آید نصب کنید:
+python api.py
 
-`sudo apt install python3-opencv`
-
-`pip install --upgrade pip`
-
-`pip install -r requirements.txt`
-
-در نهایت با دستور زیر سرویس را اجرا کنید:
-
-`python api.py`
-
-یا
-
-`waitress-serve --port=5000 --call api:create_app`
+waitress-serve --port=5000 --call api:create_app
